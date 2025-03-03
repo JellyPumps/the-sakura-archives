@@ -33,5 +33,32 @@ export class Sprite {
                 frame_count++;
             }
         }
-    } 
+    }
+
+    draw_image(ctx, x, y) {
+        // Check if sprite is loaded
+        if (!this.resource.is_loaded) return;
+
+        // Find frame
+        let frame_coord_x = 0;
+        let frame_coord_y = 0;
+
+        const frame = this.frame_map.get(this.frame);
+        if (frame) {
+            frame_coord_x = frame.x;
+            frame_coord_y = frame.y;
+        }
+
+        const frame_size_x = this.frame_size.x;
+        const frame_size_y = this.frame_size.y;
+
+        // Finally, draw
+        ctx.drawImage(
+            this.resource.image,
+            frame_coord_x, frame_coord_y,
+            frame_size_x, frame_size_y,
+            x, y,
+            frame_size_x * this.scale, frame_size_y * this.scale,
+        )
+    }
 }
