@@ -4,7 +4,7 @@ class Resources {
         // Everything that needs to be downloaded
         this.to_load = {
             background: "/sprites/background.png",
-            user: "/sprites/user_spritesheet.png",
+            user: "/sprites/user.png",
         };
 
         // Store all images
