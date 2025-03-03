@@ -1,3 +1,5 @@
+import { Vector2 } from "./Vector2";
+
 export class Sprite {
     constructor({
         resource, // image
@@ -9,13 +11,13 @@ export class Sprite {
         position,
     }) {
         this.resource = resource;
-        this.frame_size = frame_size;
+        this.frame_size = frame_size ?? new Vector2(16,16);
         this.h_frames = h_frames ?? 1;
         this.v_frames = v_frames ?? 1;
         this.frame = frame ?? 0;
         this.frame_map = new Map();
         this.scale = scale ?? 1;
-        this.position = position;
+        this.position = position ?? new Vector2(0,0);
         this.build_frame_map();
     }
 
@@ -26,7 +28,7 @@ export class Sprite {
             for (let h = 0; h < this.h_frames; h++) {
                 this.frame_map.set(
                     frame_count,
-                    {x: 0, y: 0}
+                    new Vector2(this.frame_size.x * h, this.frame_size.y * v)
                 )
                 frame_count++;
             }
