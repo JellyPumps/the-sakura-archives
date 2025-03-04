@@ -2,6 +2,7 @@ import { ProgramLoop } from './src/ProgramLoop.js';
 import { resources } from './src/Resource.js';
 import { Sprite } from './src/Sprite.js';
 import { Vector2 } from './src/Vector2.js';
+import { Input, LEFT, RIGHT, UP, DOWN } from './src/Input.js';
 import './style.css'
 
 const canvas = document.querySelector("#main-canvas");
@@ -22,9 +23,29 @@ const user = new Sprite({
 })
 
 const user_pos = new Vector2(8 * 5, 8 * 5);
+const input = new Input();
 
 const update = () => {
-
+    switch (input.direction) {
+        case UP:
+            user_pos.y -= 1;
+            user.frame = 4;
+            break;
+        case DOWN:
+            user_pos.y += 1;
+            user.frame = 1;
+            break;
+        case LEFT:
+            user_pos.x -= 1;
+            user.frame = 8;
+            break;
+        case RIGHT:
+            user_pos.x += 1;
+            user.frame = 12;
+            break;
+        default:
+            break;
+    }
 }
 
 const draw = () => {
