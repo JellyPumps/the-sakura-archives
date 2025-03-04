@@ -27,4 +27,16 @@ export class ProgramLoop {
         this.render();
         this.raf_id = requestAnimationFrame(this.main_loop);
     }
+
+    start() {
+        if (!this.is_running) {
+            this.is_running = true;
+            this.raf_id = requestAnimationFrame(this.main_loop);
+        }
+    }
+
+    stop() {
+        if (this.raf_id) cancelAnimationFrame(this.raf_id);
+        this.is_running = false;
+    }
 }
