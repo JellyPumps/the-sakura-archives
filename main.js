@@ -1,3 +1,4 @@
+import { ProgramLoop } from './src/ProgramLoop.js';
 import { resources } from './src/Resource.js';
 import { Sprite } from './src/Sprite.js';
 import { Vector2 } from './src/Vector2.js';
@@ -22,13 +23,16 @@ const user = new Sprite({
 
 const user_pos = new Vector2(8 * 5, 8 * 5);
 
+const update = () => {
+
+}
+
 const draw = () => {
     background_sprite.draw_image(ctx, 0, 0);
 
     user.draw_image(ctx, user_pos.x, user_pos.y);
 }
 
-// Basic program loop
-setInterval(() => {
-    draw()
-}, 300)
+// Program loop
+const p_loop = new ProgramLoop(update, draw);
+p_loop.start();
