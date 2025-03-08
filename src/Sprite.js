@@ -16,7 +16,7 @@ export class Sprite {
         this.v_frames = v_frames ?? 1;
         this.frame = frame ?? 0;
         this.frame_map = new Map();
-        this.scale = scale ?? 1;
+        this.scale = scale ?? new Vector2(1, 1); // made scale 2 dimensional
         this.position = position ?? new Vector2(0,0);
         this.build_frame_map();
     }
@@ -58,7 +58,7 @@ export class Sprite {
             frame_coord_x, frame_coord_y,
             frame_size_x, frame_size_y,
             x, y,
-            frame_size_x * this.scale, frame_size_y * this.scale,
+            frame_size_x * this.scale.x, frame_size_y * this.scale.y,
         )
     }
 }
