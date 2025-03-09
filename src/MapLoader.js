@@ -12,19 +12,41 @@ export class map_loader {
     }
 
     async load() {
-        const response = await fetch(this.map_file);
-        this.data = await response.json();
+        try {
+            const response = await fetch(this.map_file);
+            if (!response.ok) throw new Error("Failed to load map file");
+            this.data = await response.json();
 
-        this.data.tiles.forEach(tile => ({
-            position: new Vector2(tile.position[0], tile.position[1]),
-            type: tile.type,
-            sprite: resources.images[tile.type]
-        }));
+            this.data.tiles = this.data.tiles.map(tile => {
+                const position = new Vector2(tile.position[0] + 1, tile.position[1] + 2);
+                const type = tile.type;
+                const sprite = resources.images[type];
+
+                if (type === "wall") {
+                    this.walls.add(position);
+                } else if (type === "npc") {
+                    this.npcs.add(position);
+                } else if (type === "player_start") {
+                    this.user_start = position;
+                }
+
+                return { position, type, sprite };
+            });
+        } catch (error) {
+            console.error("Error loading map:", error);
+        }
     }
 
-    draw(ctx, tile_size) {
+    draw(ctx) {
+        if (!this.data) return;
+
         this.data.tiles.forEach(tile => {
-            tile.sprite.draw_image(ctx, tile.position.x * tile_size, tile.position.y * tile_size);
+            const x = tile.position.x * this.tile_size;
+            const y = tile.position.y * this.tile_size;
+
+            if (tile.sprite && tile.sprite.is_loaded) {
+                ctx.drawImage(tile.sprite.image, x, y, this.tile_size, this.tile_size);
+            }
         });
     }
 }

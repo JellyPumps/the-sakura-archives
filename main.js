@@ -6,9 +6,14 @@ import { Input, LEFT, RIGHT, UP, DOWN } from './src/Input.js';
 import './style.css'
 import { grid_cells } from './src/tools/Grid.js';
 import { move_towards } from './src/tools/MoveTowards.js';
+import { map_loader } from './src/MapLoader.js';
 
 const canvas = document.querySelector("#main-canvas");
 const ctx = canvas.getContext("2d");
+
+// Map
+const mpl = new map_loader("./public/map.json");
+await mpl.load();
 
 // Defining sprites
 const background_sprite = new Sprite({
@@ -22,7 +27,7 @@ const user = new Sprite({
     h_frames: 4,
     v_frames: 8,
     frame: 0,
-    position: new Vector2(grid_cells(6), grid_cells(5)),
+    position: new Vector2(grid_cells(mpl.user_start.x), grid_cells(mpl.user_start.y)),
 })
 
 const user_destination_position = user.position.duplicate();
@@ -79,6 +84,8 @@ const try_move = () => {
 
 const draw = () => {
     background_sprite.draw_image(ctx, 0, 0);
+
+    mpl.draw(ctx);
 
     user.draw_image(ctx, user.position.x, user.position.y);
 }
