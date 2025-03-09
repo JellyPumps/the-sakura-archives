@@ -4,13 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
         <div id="logo">
           <img src="./logo.png" alt="The Sakura Archives">
         </div>
-        <div id="search">
-          <input type="text" placeholder="Search...">
-        </div>
-        <a id="home" href="/">Home</a>
+        <a id="link_btn" href="/">Home</a>
+        <a id="link_btn" href="/contact_us">Contact Us</a>
       </nav>
     `;
   
-    // Inject the navbar at the top of the body
     document.body.insertAdjacentHTML('afterbegin', navbar);
 });
