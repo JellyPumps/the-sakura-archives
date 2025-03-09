@@ -8,6 +8,7 @@ class Resources {
             wall: "/tiles/wall.png",
             npc: "/sprites/npc.png",
             floor: "/tiles/floor.png",
+            player_start: "/tiles/floor.png",
             exhibit: "/sprites/exhibit.png",
         };
 
