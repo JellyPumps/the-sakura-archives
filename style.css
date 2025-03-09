@@ -12,14 +12,20 @@ html, body {
   margin: 1em;
   width: calc(100% - 2em);
   height: 8em;
-  background-color: rgb(52, 96, 130);
+  background-color: #34495e;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 15px;
   box-sizing: border-box;
   z-index: 10;
   padding: 0 1em;
+  transition: all 0.3s ease;
+}
+
+#navbar:not(:hover) {
+  height: 4em;
+  background-color: #2c3e50;
 }
 
 #logo {
@@ -31,6 +37,11 @@ html, body {
   max-width: 100px;
   height: auto;
   margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+#navbar:not(:hover) #logo img {
+  max-width: 60px;
 }
 
 #search {
@@ -45,19 +56,31 @@ html, body {
   border-radius: 5px;
   flex-grow: 1;
   width: 100%;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+#navbar:not(:hover) #search input {
+  padding: 5px;
 }
 
 #home {
   text-decoration: none;
-  color: #ccc;
+  color: #ecf0f1;
   padding: 8px 15px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
   white-space: nowrap;
 }
 
 #home:hover {
-  background-color: #303a6b;
+  background-color: #3498db;
+  color: #fff;
+}
+
+#navbar:not(:hover) #home {
+  padding: 5px 10px;
 }
 
 @media (max-width: 768px) {
@@ -66,6 +89,10 @@ html, body {
     align-items: stretch;
     height: auto;
     padding: 1em;
+  }
+
+  #navbar:not(:hover) {
+    height: auto; /* Don't shrink on mobile */
   }
 
   #logo {
