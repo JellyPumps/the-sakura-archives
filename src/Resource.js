@@ -5,6 +5,10 @@ class Resources {
         this.to_load = {
             background: "/sprites/background.png",
             user: "/sprites/user.png",
+            wall: "/tiles/wall.png",
+            npc: "/sprites/npc.png",
+            floor: "/tiles/floor.png",
+            exhibit: "/sprites/exhibit.png",
         };
 
         // Store all images
