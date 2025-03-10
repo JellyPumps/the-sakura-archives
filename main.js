@@ -4,7 +4,7 @@ import { Sprite } from './src/Sprite.js';
 import { Vector2 } from './src/Vector2.js';
 import { Input, LEFT, RIGHT, UP, DOWN } from './src/Input.js';
 import './style.css'
-import { grid_cells } from './src/tools/Grid.js';
+import { grid_cells, is_space_free } from './src/tools/Grid.js';
 import { move_towards } from './src/tools/MoveTowards.js';
 import { map_loader } from './src/MapLoader.js';
 
@@ -74,11 +74,10 @@ const try_move = () => {
             break;
     }
 
-    //TODO Check if the next position is valid
-
-    user_destination_position.x = n_x;
-    user_destination_position.y = n_y;
-
+    if (is_space_free(mpl.walls, n_x, n_y)) {
+        user_destination_position.x = n_x;
+        user_destination_position.y = n_y;
+    }
 
 }
 
