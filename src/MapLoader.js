@@ -22,7 +22,7 @@ export class map_loader {
                 const type = tile.type;
                 const sprite = resources.images[type];
 
-                if (type === "wall") {
+                if (type === "wall" || type === "exhibit") {
                     this.walls.add(position);
                 } else if (type === "npc") {
                     this.npcs.add(position);
