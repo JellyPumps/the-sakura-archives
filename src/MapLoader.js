@@ -1,21 +1,28 @@
+import { NPC } from "./NPC";
 import { resources } from "./Resource";
 import { Vector2 } from "./Vector2";
 
 export class map_loader {
-    constructor(map_file) {
+    constructor(map_file, npc_file) {
         this.map_file = map_file;
+        this.npc_file = npc_file;
         this.data = null;
         this.walls = new Set();
         this.npcs = new Set();
         this.tile_size = 16;
         this.user_start = new Vector2(0, 0);
+        this.npc_dialogue = {};
     }
 
     async load() {
         try {
-            const response = await fetch(this.map_file);
-            if (!response.ok) throw new Error("Failed to load map file");
-            this.data = await response.json();
+            const m_response = await fetch(this.map_file);
+            if (!m_response.ok) throw new Error("Failed to load map file");
+            this.data = await m_response.json();
+
+            const n_response = await fetch(this.npc_file);
+            if (!n_response.ok) throw new Error("Failed to load npc file");
+            const npc_dialogue = await n_response.json();
 
             this.data.tiles = this.data.tiles.map(tile => {
                 const position = new Vector2(tile.position[0] + 1, tile.position[1] + 2);
@@ -25,7 +32,10 @@ export class map_loader {
                 if (type === "wall" || type === "exhibit") {
                     this.walls.add(position);
                 } else if (type === "npc") {
-                    this.npcs.add(position);
+                    const npc_id = tile.id;
+                    const dialogue = this.npc_dialogue[npc_id];
+                    const npc = new NPC(npc_id, position, dialogue);
+                    this.npcs.add(npc);
                 } else if (type === "player_start") {
                     this.user_start = position;
                 }
