@@ -15,7 +15,7 @@
         {"position": [1, 1], "type": "floor"},
         {"position": [2, 1], "type": "floor"},
         {"position": [3, 1], "type": "player_start"},
-        {"position": [4, 1], "type": "npc"},
+        {"position": [4, 1], "type": "npc", "id": "n_welcome"},
         {"position": [5, 1], "type": "floor"},
         {"position": [6, 1], "type": "floor"},
         {"position": [7, 1], "type": "floor"},
@@ -40,7 +40,7 @@
         {"position": [4, 3], "type": "floor"},
         {"position": [5, 3], "type": "floor"},
         {"position": [6, 3], "type": "floor"},
-        {"position": [7, 3], "type": "npc"},
+        {"position": [7, 3], "type": "npc", "id": "n_retro"},
         {"position": [8, 3], "type": "floor"},
         {"position": [9, 3], "type": "wall"},
     
@@ -62,7 +62,7 @@
         {"position": [4, 5], "type": "floor"},
         {"position": [5, 5], "type": "floor"},
         {"position": [6, 5], "type": "floor"},
-        {"position": [7, 5], "type": "npc"},
+        {"position": [7, 5], "type": "npc", "id":"n_3D"},
         {"position": [8, 5], "type": "floor"},
         {"position": [9, 5], "type": "wall"},
     
@@ -84,7 +84,7 @@
         {"position": [4, 7], "type": "floor"},
         {"position": [5, 7], "type": "floor"},
         {"position": [6, 7], "type": "floor"},
-        {"position": [7, 7], "type": "npc"},
+        {"position": [7, 7], "type": "npc", "id": "n_modern"},
         {"position": [8, 7], "type": "floor"},
         {"position": [9, 7], "type": "wall"},
     
@@ -106,7 +106,7 @@
         {"position": [4, 9], "type": "floor"},
         {"position": [5, 9], "type": "floor"},
         {"position": [6, 9], "type": "floor"},
-        {"position": [7, 9], "type": "npc"},
+        {"position": [7, 9], "type": "npc", "id": "n_jrpg"},
         {"position": [8, 9], "type": "floor"},
         {"position": [9, 9], "type": "wall"},
     
@@ -128,7 +128,7 @@
         {"position": [4, 11], "type": "floor"},
         {"position": [5, 11], "type": "floor"},
         {"position": [6, 11], "type": "floor"},
-        {"position": [7, 11], "type": "npc"},
+        {"position": [7, 11], "type": "npc", "id": "n_vnovel"},
         {"position": [8, 11], "type": "floor"},
         {"position": [9, 11], "type": "wall"},
     
@@ -150,7 +150,7 @@
         {"position": [4, 13], "type": "floor"},
         {"position": [5, 13], "type": "floor"},
         {"position": [6, 13], "type": "floor"},
-        {"position": [7, 13], "type": "npc"},
+        {"position": [7, 13], "type": "npc", "id": "n_fighting"},
         {"position": [8, 13], "type": "floor"},
         {"position": [9, 13], "type": "wall"},
     

@@ -1,0 +1,9 @@
+{
+    "n_welcome": "Greetings! Welcome to The Sakura Archives. An online museum about Japanese video game history! To move around, use the arrow keys or the WASD keys. To interact with exhibits, press the E. Enjoy your visit!",
+    "n_retro": "This exhibit is about Retro era in Japnese video game history. (Click Here to learn more.)[/e_retro]",
+    "n_3D": "This exhibit is about 3D era in Japnese video game history. (Click Here to learn more.)[/e_3D]",
+    "n_modern": "This exhibit is about Modern era in Japnese video game history. (Click Here to learn more.)[/e_modern]",
+    "n_jrpg": "This exhibit is about JRGP genre in Japnese video game history. (Click Here to learn more.)[/e_jrpg]",
+    "n_vnovel": "This exhibit is about Visual Novel genre in Japnese video game history. (Click Here to learn more.)[/e_vnovel]",
+    "n_fighting": "This exhibit is about Fighting genre in Japnese video game history. (Click Here to learn more.)[/e_fighting]"
+}

@@ -12,7 +12,7 @@ const canvas = document.querySelector("#main-canvas");
 const ctx = canvas.getContext("2d");
 
 // Map
-const mpl = new map_loader("./map.json");
+const mpl = new map_loader("./map.json", "./dialogues.json");
 await mpl.load();
 
 // Defining sprites
