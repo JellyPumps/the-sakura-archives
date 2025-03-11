@@ -13,10 +13,6 @@ export class NPC {
         });
     }
 
-    draw(ctx) {
-        this.sprite.draw_image(ctx, this.position.x, this.position.y);
-    }
-
     interact() {
         // TODO add logic
         console.log(this.dialogue);
