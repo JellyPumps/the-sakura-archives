@@ -7,6 +7,7 @@ import './style.css'
 import { grid_cells, is_space_free } from './src/tools/Grid.js';
 import { move_towards } from './src/tools/MoveTowards.js';
 import { map_loader } from './src/MapLoader.js';
+import { handle_interaction } from './src/tools/NPCTools.js';
 
 const canvas = document.querySelector("#main-canvas");
 const ctx = canvas.getContext("2d");
@@ -41,6 +42,8 @@ const update = () => {
     if (has_arrived) {
         try_move()
     }
+
+    handle_interaction(user, mpl.npcs, input);
     
 }
 
