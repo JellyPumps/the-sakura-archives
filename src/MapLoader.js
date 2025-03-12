@@ -22,7 +22,7 @@ export class map_loader {
 
             const n_response = await fetch(this.npc_file);
             if (!n_response.ok) throw new Error("Failed to load npc file");
-            const npc_dialogue = await n_response.json();
+            this.npc_dialogue = await n_response.json();
 
             this.data.tiles = this.data.tiles.map(tile => {
                 const position = new Vector2(tile.position[0] + 1, tile.position[1] + 2);
