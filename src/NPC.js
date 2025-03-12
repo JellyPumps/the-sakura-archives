@@ -14,7 +14,6 @@ export class NPC {
     }
 
     interact() {
-        // TODO add logic
-        console.log(this.dialogue);
+        return this.dialogue;
     }
 }
