@@ -3,8 +3,6 @@ export const RIGHT = "RIGHT"
 export const UP = "UP"
 export const DOWN = "DOWN"
 
-const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 export class Input {
     constructor() {
         this.held_directions = [];
@@ -29,8 +27,10 @@ export class Input {
                     this.on_arrow_pressed(RIGHT);
                     break;
                 case "KeyE":
-                    this.interact_pressed = true;
-                    wait(10).then(() => this.interact_pressed = false);
+                    if (!this.interact_pressed) {
+                        this.interact_pressed = true;
+                        this.schedule_reset();
+                    }
                     break;
                 default:
                     break;
@@ -54,6 +54,9 @@ export class Input {
                 case "ArrowRight":
                 case "KeyD":
                     this.on_arrow_released(RIGHT);
+                    break;
+                case "KeyE":
+                    this.interact_pressed = false;
                     break;
                 default:
                     break;
@@ -80,5 +83,11 @@ export class Input {
 
     is_interact_pressed() {
         return this.interact_pressed;
+    }
+
+    schedule_reset() {
+        requestAnimationFrame(() => {
+            this.interact_pressed = false;
+        });
     }
 }
