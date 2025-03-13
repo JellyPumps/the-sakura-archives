@@ -46,3 +46,13 @@
 #close-button:hover {
     background-color: #c0392b;
 }
+
+.dialogue-box a {
+    color: #ffcc00;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.dialogue-box a:hover {
+    color: #ff9900;
+}

@@ -23,8 +23,9 @@ export function handle_interaction(user, npcs, input) {
             if (input.is_interact_pressed()) {
                 remove_prompt(INTERACT);
                 const dialogue = npc.interact();
+                const f_dialogue = format_dialogue(dialogue);
                 insert_prompt(DIALOGUE);
-                document.getElementById('textbox').innerText = dialogue;
+                document.getElementById('textbox').innerHTML = f_dialogue;
                 is_prompt_displayed = true;
                 curr_prompt_type = DIALOGUE;
             }
@@ -63,7 +64,7 @@ const interact_prompt = `
     </div>
 `;
 
-export function insert_prompt(prompt) {
+function insert_prompt(prompt) {
     if (prompt === DIALOGUE) {
         if (!document.getElementById('dialogue-prompt')) {
             document.body.insertAdjacentHTML('beforeend', dialogue_prompt);
@@ -80,7 +81,7 @@ export function insert_prompt(prompt) {
     }
 }
 
-export function remove_prompt(prompt) {
+function remove_prompt(prompt) {
     if (prompt === DIALOGUE) {
         const dialogueBox = document.getElementById('dialogue-prompt');
         if (dialogueBox) dialogueBox.remove();
@@ -88,4 +89,10 @@ export function remove_prompt(prompt) {
         const interactBox = document.getElementById('interaction-prompt');
         if (interactBox) interactBox.remove();
     }
+}
+
+function format_dialogue(dialogue) {
+    const regex = /\(([^)]+)\)\[([^\]]+)\]/g;
+
+    return dialogue.replace(regex, '<a href="$2" target="_blank">$1</a>');
 }
