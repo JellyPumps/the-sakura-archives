@@ -13,7 +13,7 @@ export function handle_interaction(user, npcs, input) {
         if (check_proximity(user.position, npc.position)) {
             is_near_npc = true;
             
-            if (!is_prompt_displayed || curr_prompt_type !== INTERACT) {
+            if (!is_prompt_displayed || curr_prompt_type === null) {
                 remove_prompt(curr_prompt_type);
                 insert_prompt(INTERACT);
                 is_prompt_displayed = true;
