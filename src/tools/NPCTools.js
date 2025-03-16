@@ -1,4 +1,4 @@
-import { Vector2 } from "../Vector2";
+import { Vector2 } from "../objects/Vector2";
 
 let is_prompt_displayed = false;
 let curr_prompt_type = null;

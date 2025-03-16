@@ -1,4 +1,4 @@
-import { Vector2 } from "../Vector2";
+import { Vector2 } from "../objects/Vector2";
 
 export const grid_cells = n => {
     return n * 16;

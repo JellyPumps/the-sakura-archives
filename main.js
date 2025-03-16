@@ -1,12 +1,12 @@
-import { ProgramLoop } from './src/ProgramLoop.js';
-import { resources } from './src/Resource.js';
-import { Sprite } from './src/Sprite.js';
-import { Vector2 } from './src/Vector2.js';
-import { Input, LEFT, RIGHT, UP, DOWN } from './src/Input.js';
+import { ProgramLoop } from './src/objects/ProgramLoop.js';
+import { resources } from './src/objects/Resource.js';
+import { Sprite } from './src/objects/Sprite.js';
+import { Vector2 } from './src/objects/Vector2.js';
+import { Input, LEFT, RIGHT, UP, DOWN } from './src/objects/Input.js';
 import './style.css'
 import { grid_cells, is_space_free } from './src/tools/Grid.js';
 import { move_towards } from './src/tools/MoveTowards.js';
-import { map_loader } from './src/MapLoader.js';
+import { map_loader } from './src/objects/MapLoader.js';
 import { handle_interaction } from './src/tools/NPCTools.js';
 
 const canvas = document.querySelector("#main-canvas");
