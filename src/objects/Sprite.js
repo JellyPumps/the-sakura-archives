@@ -1,4 +1,5 @@
 import { Vector2 } from "./Vector2";
+import { animations } from "./Animations";
 
 export class Sprite {
     constructor({
@@ -16,8 +17,9 @@ export class Sprite {
         this.v_frames = v_frames ?? 1;
         this.frame = frame ?? 0;
         this.frame_map = new Map();
-        this.scale = scale ?? new Vector2(1, 1); // made scale 2 dimensional
+        this.scale = scale ?? new Vector2(1, 1);
         this.position = position ?? new Vector2(0,0);
+        this.animations = animations ?? null;
         this.build_frame_map();
     }
 
@@ -33,6 +35,13 @@ export class Sprite {
                 frame_count++;
             }
         }
+    }
+
+    step(delta) {
+        if (!this.animation) return;
+
+        this.animations.step(delta);
+        this.frame = this.animations.frame;
     }
 
     draw_image(ctx, x, y) {

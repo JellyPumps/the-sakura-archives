@@ -8,6 +8,9 @@ import { grid_cells, is_space_free } from './src/tools/Grid.js';
 import { move_towards } from './src/tools/MoveTowards.js';
 import { map_loader } from './src/objects/MapLoader.js';
 import { handle_interaction } from './src/tools/NPCTools.js';
+import { animations } from './src/objects/Animations.js';
+import { frame_idx_pattern } from './src/objects/FrameIndexPattern.js';
+import { W_D, W_U, W_L, W_R } from './src/objects/UserAnimations.js';
 
 const canvas = document.querySelector("#main-canvas");
 const ctx = canvas.getContext("2d");
@@ -29,13 +32,19 @@ const user = new Sprite({
     v_frames: 8,
     frame: 0,
     position: new Vector2(grid_cells(mpl.user_start.x), grid_cells(mpl.user_start.y)),
+    animations: new animations({
+        walk_down: new frame_idx_pattern(W_D),
+        walk_up: new frame_idx_pattern(W_U),
+        walk_left: new frame_idx_pattern(W_L),
+        walk_right: new frame_idx_pattern(W_R),
+    })
 })
 
 const user_destination_position = user.position.duplicate();
 
 const input = new Input();
 
-const update = () => {
+const update = (delta) => {
     const distance = move_towards(user, user_destination_position, 1)
     const has_arrived = distance <= 1;
 
@@ -44,6 +53,7 @@ const update = () => {
     }
 
     handle_interaction(user, mpl.npcs, input);
+    user.step(delta);
     
 }
 
