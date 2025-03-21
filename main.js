@@ -15,6 +15,9 @@ import { W_D, W_U, W_L, W_R } from './src/objects/UserAnimations.js';
 const canvas = document.querySelector("#main-canvas");
 const ctx = canvas.getContext("2d");
 
+const GRID_SIZE = 16;
+const MOVE_SPEED = 1;
+
 // Map
 const mpl = new map_loader("./map.json", "./dialogues.json");
 await mpl.load();
@@ -41,12 +44,11 @@ const user = new Sprite({
 })
 
 const user_destination_position = user.position.duplicate();
-
 const input = new Input();
 
 const update = (delta) => {
-    const distance = move_towards(user, user_destination_position, 1)
-    const has_arrived = distance <= 1;
+    const distance = move_towards(user, user_destination_position, MOVE_SPEED)
+    const has_arrived = distance <= MOVE_SPEED;
 
     if (has_arrived) {
         try_move()
@@ -62,34 +64,21 @@ const try_move = () => {
         return;
     }
 
-    let n_x = user_destination_position.x;
-    let n_y = user_destination_position.y;
-    const grid_size = 16;
-
-    switch (input.direction) {
-        case UP:
-            n_y -= grid_size;
-            user.frame = 4;
-            break;
-        case DOWN:
-            n_y += grid_size;
-            user.frame = 1;
-            break;
-        case LEFT:
-            n_x -= grid_size;
-            user.frame = 8;
-            break;
-        case RIGHT:
-            n_x += grid_size;
-            user.frame = 12;
-            break;
-        default:
-            break;
+    const direction_map = {
+        [UP]: { x: 0, y: -GRID_SIZE, frame: 4},
+        [DOWN]: { x: 0, y: GRID_SIZE, frame: 1},
+        [LEFT]: { x: -GRID_SIZE, y: 0, frame: 8},
+        [RIGHT]: { x: GRID_SIZE, y: 0, frame: 12}
     }
 
+    const { x, y, frame} = direction_map[input.direction];
+    let n_x = user_destination_position.x + x;
+    let n_y = user_destination_position.y + y;
+    
     if (is_space_free(mpl.walls, n_x, n_y)) {
         user_destination_position.x = n_x;
         user_destination_position.y = n_y;
+        user.frame =  frame;
     }
 
 }
