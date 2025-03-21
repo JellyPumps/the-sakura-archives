@@ -10,5 +10,7 @@ html, body {
 /* Canvas Styling */
 #main-canvas {
   width: 100%;
-  background: blue;
+  background-image: url("sprites/background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
