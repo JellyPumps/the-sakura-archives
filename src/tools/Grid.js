@@ -1,8 +1,6 @@
 import { Vector2 } from "../objects/Vector2";
 
-export const grid_cells = n => {
-    return n * 16;
-}
+export const grid_cells = n => n * 16;
 
 export const is_space_free = (walls, x, y) => {
     const pos = new Vector2(x / 16, y / 16);
