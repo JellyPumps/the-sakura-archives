@@ -2,7 +2,7 @@ import { NPC } from "./NPC";
 import { resources } from "./Resource";
 import { Vector2 } from "./Vector2";
 
-export class map_loader {
+export class MapLoader {
     constructor(map_file, npc_file) {
         this.map_file = map_file;
         this.npc_file = npc_file;
