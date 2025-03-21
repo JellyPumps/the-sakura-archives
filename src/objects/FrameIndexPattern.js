@@ -2,14 +2,14 @@ export class FrameIndexPattern {
     constructor(animation_config) {
         this.current_time = 0
         this.animation_config = animation_config;
-        this.duration = this.animation_config.duration ?? 400;
+        this.duration = animation_config.duration ?? 500;
     }
 
     get frame() {
-        const {frames} = this.animation_config.frames;
+        const { frames } = this.animation_config;
         for (let i = frames.length - 1; i >= 0; i--) {
             if (this.current_time >= frames[i].time) {
-                return frames[i].index;
+                return frames[i].frame;
             }
         }
         throw "Time is before the first frame";

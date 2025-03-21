@@ -17,12 +17,12 @@ const mk_standing_frame = (root_frame = 0) => {
     }
 }
 
-export const S_D = mk_standing_frame(0);
-export const S_U = mk_standing_frame(7);
-export const S_L = mk_standing_frame(11);
-export const S_R = mk_standing_frame(15);
+export const STAND_DOWN = mk_standing_frame(0);
+export const STAND_UP = mk_standing_frame(7);
+export const STAND_LEFT = mk_standing_frame(11);
+export const STAND_RIGHT = mk_standing_frame(15);
 
-export const W_D = mk_walking_frames(0);
-export const W_U = mk_walking_frames(4);
-export const W_L = mk_walking_frames(8);
-export const W_R = mk_walking_frames(12);
+export const WALK_DOWN = mk_walking_frames(0);
+export const WALK_UP = mk_walking_frames(4);
+export const WALK_LEFT = mk_walking_frames(8);
+export const WALK_RIGHT = mk_walking_frames(12);

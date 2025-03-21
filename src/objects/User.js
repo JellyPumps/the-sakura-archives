@@ -5,7 +5,8 @@ import { Vector2 } from "./Vector2";
 import { Sprite } from "./Sprite";
 import { resources } from "./Resource";
 import { Animations } from "./Animations";
-import { W_D, W_R, W_L, W_U, S_D, S_L, S_R, S_U } from "./UserAnimations";
+import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP, 
+    STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP } from "./UserAnimations";
 import { move_towards } from "../tools/MoveTowards";
 import { handle_interaction } from "../tools/NPCTools";
 import { is_space_free } from "../tools/Grid";
@@ -23,14 +24,14 @@ export class User extends GameObject {
             frame: 0,
             position: new Vector2(0, 0),
             animations: new Animations({
-                walk_down: new FrameIndexPattern(W_D),
-                walk_up: new FrameIndexPattern(W_U),
-                walk_left: new FrameIndexPattern(W_L),
-                walk_right: new FrameIndexPattern(W_R),
-                stand_down: new FrameIndexPattern(S_D),
-                stand_up: new FrameIndexPattern(S_U),
-                stand_left: new FrameIndexPattern(S_L),
-                stand_right: new FrameIndexPattern(S_R),
+                walk_down: new FrameIndexPattern(WALK_DOWN),
+                walk_up: new FrameIndexPattern(WALK_UP),
+                walk_left: new FrameIndexPattern(WALK_LEFT),
+                walk_right: new FrameIndexPattern(WALK_RIGHT),
+                stand_down: new FrameIndexPattern(STAND_DOWN),
+                stand_up: new FrameIndexPattern(STAND_UP),
+                stand_left: new FrameIndexPattern(STAND_LEFT),
+                stand_right: new FrameIndexPattern(STAND_RIGHT),
             })
         })
         this.add_child(this.body);
@@ -79,11 +80,11 @@ export class User extends GameObject {
         let n_y = this.destination_position.y + y;
 
         this.facing_direction = input.direction ?? this.facing_direction;
-        
+        this.body.animations.play(animation);
+
         if (is_space_free(mpl.walls, n_x, n_y)) {
             this.destination_position.x = n_x;
             this.destination_position.y = n_y;
-            this.body.animations.play(animation);
         }
     
     }
