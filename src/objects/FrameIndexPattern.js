@@ -1,4 +1,4 @@
-export class frame_idx_pattern {
+export class FrameIndexPattern {
     constructor(animation_config) {
         this.current_time = 0
         this.animation_config = animation_config;
