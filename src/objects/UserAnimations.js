@@ -2,22 +2,10 @@ const mk_walking_frames = (root_frame = 0) => {
     return {
         duration: 400,
         frames: [
-            {
-                time: 0,
-                frame: root_frame
-            },
-            {
-                time: 100,
-                frame: root_frame + 1
-            },
-            {
-                time: 200,
-                frame: root_frame + 2
-            },
-            {
-                time: 300,
-                frame: root_frame + 3
-            },
+            { time: 0, frame: root_frame },
+            { time: 100, frame: root_frame + 1 },
+            { time: 200, frame: root_frame + 2 },
+            { time: 300, frame: root_frame + 3 },
         ]
     }
 }
@@ -25,12 +13,7 @@ const mk_walking_frames = (root_frame = 0) => {
 const mk_standing_frame = (root_frame = 0) => {
     return {
         duration: 400,
-        frames: [
-            {
-                time: 0,
-                frame: root_frame
-            }
-        ]
+        frames: [{ time: 0, frame: root_frame }]
     }
 }
 
