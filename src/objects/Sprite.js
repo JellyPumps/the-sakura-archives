@@ -1,5 +1,4 @@
 import { Vector2 } from "./Vector2";
-import { Animations } from "./Animations";
 import { GameObject } from "../GameObject";
 
 export class Sprite extends GameObject{
@@ -41,7 +40,7 @@ export class Sprite extends GameObject{
     }
 
     step(delta) {
-        if (!this.animation) return;
+        if (!this.animation) { return; }
 
         this.animations.step(delta);
         this.frame = this.animations.frame;
