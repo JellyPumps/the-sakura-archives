@@ -6,10 +6,10 @@ import { Input, LEFT, RIGHT, UP, DOWN } from './src/objects/Input.js';
 import './style.css'
 import { grid_cells, is_space_free } from './src/tools/Grid.js';
 import { move_towards } from './src/tools/MoveTowards.js';
-import { map_loader } from './src/objects/MapLoader.js';
+import { MapLoader } from './src/objects/MapLoader.js';
 import { handle_interaction } from './src/tools/NPCTools.js';
-import { animations } from './src/objects/Animations.js';
-import { frame_idx_pattern } from './src/objects/FrameIndexPattern.js';
+import { Animations } from './src/objects/Animations.js';
+import { FrameIndexPattern } from './src/objects/FrameIndexPattern.js';
 import { W_D, W_U, W_L, W_R } from './src/objects/UserAnimations.js';
 
 const canvas = document.querySelector("#main-canvas");
@@ -19,7 +19,7 @@ const GRID_SIZE = 16;
 const MOVE_SPEED = 1;
 
 // Map
-const mpl = new map_loader("./map.json", "./dialogues.json");
+const mpl = new MapLoader("./map.json", "./dialogues.json");
 await mpl.load();
 
 // Defining sprites
@@ -35,11 +35,11 @@ const user = new Sprite({
     v_frames: 8,
     frame: 0,
     position: new Vector2(grid_cells(mpl.user_start.x), grid_cells(mpl.user_start.y)),
-    animations: new animations({
-        walk_down: new frame_idx_pattern(W_D),
-        walk_up: new frame_idx_pattern(W_U),
-        walk_left: new frame_idx_pattern(W_L),
-        walk_right: new frame_idx_pattern(W_R),
+    animations: new Animations({
+        walk_down: new FrameIndexPattern(W_D),
+        walk_up: new FrameIndexPattern(W_U),
+        walk_left: new FrameIndexPattern(W_L),
+        walk_right: new FrameIndexPattern(W_R),
     })
 })
 

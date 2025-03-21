@@ -1,4 +1,4 @@
-export class animations {
+export class Animations {
     constructor(patterns) {
         this.patterns = patterns;
         this.active_key = Object.keys(this.patterns)[0];

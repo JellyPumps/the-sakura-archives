@@ -1,5 +1,5 @@
 import { Vector2 } from "./Vector2";
-import { animations } from "./Animations";
+import { Animations } from "./Animations";
 
 export class Sprite {
     constructor({
@@ -19,7 +19,7 @@ export class Sprite {
         this.frame_map = new Map();
         this.scale = scale ?? new Vector2(1, 1);
         this.position = position ?? new Vector2(0,0);
-        this.animations = animations ?? null;
+        this.animations = Animations ?? null;
         this.build_frame_map();
     }
 
