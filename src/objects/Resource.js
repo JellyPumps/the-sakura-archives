@@ -3,7 +3,6 @@ class Resources {
     constructor() {
         // Everything that needs to be downloaded
         this.to_load = {
-            background: "/sprites/background.png",
             user: "/sprites/user.png",
             wall: "/tiles/wall.png",
             npc: "/sprites/npc.png",
