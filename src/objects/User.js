@@ -10,6 +10,7 @@ import { WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP,
 import { move_towards } from "../tools/MoveTowards";
 import { handle_interaction } from "../tools/NPCTools";
 import { is_space_free } from "../tools/Grid";
+import { events } from "../Events";
 
 export class User extends GameObject {
     constructor(x, y) {
@@ -53,6 +54,16 @@ export class User extends GameObject {
         const {input} = root;
 
         handle_interaction(this, mpl.npcs, input);
+        
+        this.try_emit_position()
+    }
+
+    try_emit_position() {
+        if (this.last_x === this.position.x && this.last_y === this.position.y) {return;}
+
+        this.last_x = this.position.x;
+        this.last_y = this.position.y;
+        events.emit("USER_POSITION", this.position);
     }
 
     try_move(root) {
