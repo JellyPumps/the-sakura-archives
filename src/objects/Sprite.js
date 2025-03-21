@@ -49,14 +49,9 @@ export class Sprite {
         if (!this.resource.is_loaded) return;
 
         // Find frame
-        let frame_coord_x = 0;
-        let frame_coord_y = 0;
-
         const frame = this.frame_map.get(this.frame);
-        if (frame) {
-            frame_coord_x = frame.x;
-            frame_coord_y = frame.y;
-        }
+        const frame_coord_x = frame ? frame.x : 0;
+        const frame_coord_y = frame ? frame.y : 0;
 
         const frame_size_x = this.frame_size.x;
         const frame_size_y = this.frame_size.y;
