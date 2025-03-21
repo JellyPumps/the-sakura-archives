@@ -1,16 +1,9 @@
 import { ProgramLoop } from './src/objects/ProgramLoop.js';
-import { resources } from './src/objects/Resource.js';
-import { Sprite } from './src/objects/Sprite.js';
 import { Vector2 } from './src/objects/Vector2.js';
-import { Input, LEFT, RIGHT, UP, DOWN } from './src/objects/Input.js';
+import { Input } from './src/objects/Input.js';
 import './style.css'
-import { grid_cells, is_space_free } from './src/tools/Grid.js';
-import { move_towards } from './src/tools/MoveTowards.js';
+import { grid_cells } from './src/tools/Grid.js';
 import { MapLoader } from './src/objects/MapLoader.js';
-import { handle_interaction } from './src/tools/NPCTools.js';
-import { Animations } from './src/objects/Animations.js';
-import { FrameIndexPattern } from './src/objects/FrameIndexPattern.js';
-import { W_D, W_U, W_L, W_R } from './src/objects/UserAnimations.js';
 import { GameObject } from './src/GameObject.js';
 import { User } from './src/objects/User.js';
 
