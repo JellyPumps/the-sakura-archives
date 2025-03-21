@@ -1,7 +1,8 @@
 import { Vector2 } from "./Vector2";
 import { Animations } from "./Animations";
+import { GameObject } from "../GameObject";
 
-export class Sprite {
+export class Sprite extends GameObject{
     constructor({
         resource, // image
         frame_size, // size of crop of image
@@ -10,7 +11,9 @@ export class Sprite {
         frame, // frame itself
         scale, // scale of the image
         position,
+        animations
     }) {
+        super({});
         this.resource = resource;
         this.frame_size = frame_size ?? new Vector2(16,16);
         this.h_frames = h_frames ?? 1;
@@ -19,7 +22,7 @@ export class Sprite {
         this.frame_map = new Map();
         this.scale = scale ?? new Vector2(1, 1);
         this.position = position ?? new Vector2(0,0);
-        this.animations = Animations ?? null;
+        this.animations = animations ?? null;
         this.build_frame_map();
     }
 
