@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
           <img src="./logo.png" alt="The Sakura Archives">
         </div>
         <a id="link_btn" href="/">Home</a>
-        <a id="link_btn" href="/contact_us">Contact Us</a>
-        <a id="link_btn" href="/guestbook">Guestbook</a>
+        <a id="link_btn" href="/contact_us.html">Contact Us</a>
+        <a id="link_btn" href="/guestbook.html">Guestbook</a>
       </nav>
     `;
   
