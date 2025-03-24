@@ -6,7 +6,6 @@ import { grid_cells } from './src/tools/Grid.js';
 import { MapLoader } from './src/objects/MapLoader.js';
 import { GameObject } from './src/GameObject.js';
 import { User } from './src/objects/User.js';
-import { events } from './src/Events.js';
 import { Camera } from './src/Camera.js';
 
 const canvas = document.querySelector("#main-canvas");
