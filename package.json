@@ -8,13 +8,6 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "engines": {
-    "node": ">=16"
-  },
-  "browserslist": [
-    "defaults",
-    "not dead"
-  ],
   "devDependencies": {
     "vite": "^6.2.0"
   }
